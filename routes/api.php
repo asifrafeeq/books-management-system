@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +23,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::resource('category',App\Http\Controllers\CategoryController::class)->only(['index','store','show','update','destroy']);
 
 Route::resource('books',App\Http\Controllers\BookController::class)->only(['index','store','show','update','destroy']);
+
+
+Route::post('login', [AuthController::class, 'login']);
+Route::post('register', [AuthController::class, 'register']);
+
+
